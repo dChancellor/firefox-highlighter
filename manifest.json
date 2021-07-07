@@ -1,0 +1,24 @@
+{
+  "manifest_version": 2,
+  "name": "Highlighter",
+  "version": "1.0",
+
+  "description": "Adds a context menu item to save highlights from a webpage and allows users to write notes about this highlight.",
+  "permissions": ["activeTab", "contextMenus", "clipboardWrite"],
+  "icons": {
+    "48": "save.svg"
+  },
+  "background": {
+    "scripts": ["highlighter.js"]
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": [
+        "script.js",
+        "/tagify/tagify.js",
+        "/tagify/tagify.polyfills.min.js"
+      ]
+    }
+  ]
+}
